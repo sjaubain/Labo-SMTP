@@ -1,0 +1,4 @@
+smtpServerAdress=localhost
+smtpServerPort=2525
+numberOfGroups=3
+witnessToCC=simon.jobin@heig-vd.ch
