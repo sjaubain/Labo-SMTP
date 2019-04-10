@@ -11,7 +11,7 @@ public class Group {
     private LinkedList<Person> group;
 
     public Group() {
-        group = new LinkedList<>();
+        //group = new LinkedList<>();
     }
 
     public void addPerson(Person person) {
