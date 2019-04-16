@@ -1,4 +1,6 @@
+import configurations.ConfigurationManager;
 import model.Mail;
+import model.PrankGenerator;
 import smtp.SMTPClient;
 
 import java.io.IOException;
@@ -7,16 +9,13 @@ public class MailRobot {
 
     public static void main(String[] args) throws IOException {
 
-        String address = "localhost";
-        int port = 25;
+        ConfigurationManager cm = new ConfigurationManager();
+        PrankGenerator pg = new PrankGenerator(cm);
+        SMTPClient client = new SMTPClient(cm.getSmtpServerAddress(), cm.getSmtpServerPort());
 
-        SMTPClient client = new SMTPClient(address, port);
-
-        Mail mail = new Mail("simon.jobin@heig-vd.ch",
-                             "simon.jobin@heig-vd.ch",
-                             "fake", "Bonjour");
-
-        client.sendMail(mail);
+        for(int i = 0; i < cm.getNumberOfGroups(); ++i) {
+            client.handlePrank(pg.generatePrank());
+        }
 
         client.closeConnection();
     }

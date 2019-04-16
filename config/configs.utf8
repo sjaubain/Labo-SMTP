@@ -1,4 +1,4 @@
-smtpServerAddress=localhost
-smtpServerPort=25
+smtpServerAddress=192.168.99.100
+smtpServerPort=2525
 numberOfGroups=3
 witnessToCC=simon.jobin@heig-vd.ch

@@ -4,13 +4,12 @@ public class Mail {
 
     private String senderMailAddress;
     private String receiverMailAddress;
-    private String subject, body;
+    private Message message;
 
-    public Mail(String senderMailAddress, String receiverMailAddress, String subject, String body) {
+    public Mail(String senderMailAddress, String receiverMailAddress, Message message) {
         this.senderMailAddress = senderMailAddress;
         this.receiverMailAddress = receiverMailAddress;
-        this.subject = subject;
-        this.body = body;
+        this.message = message;
     }
 
     public String getSenderMailAddress() {
@@ -21,11 +20,4 @@ public class Mail {
         return receiverMailAddress;
     }
 
-    public String getSubject() {
-        return subject;
-    }
-
-    public String getBody() {
-        return body;
-    }
-}
+    public Message getMessage() { return message; }}
