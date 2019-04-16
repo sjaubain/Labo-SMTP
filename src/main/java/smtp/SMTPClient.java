@@ -23,6 +23,9 @@ public class SMTPClient {
 
     public SMTPClient(String smtpServerAddress, int smtpServerPort) throws IOException {
 
+        /* Initiate connection at client creation, each prank
+         * is handled in the same connection
+         */
         this.smtpServerAddress = smtpServerAddress;
         this.smtpServerPort = smtpServerPort;
 
@@ -69,13 +72,14 @@ public class SMTPClient {
                 "> to <" + mail.getReceiverMailAddress() + ">");
     }
 
-    public void sendCommand(String command) throws IOException {
+    public void sendCommand(String command) {
         printWriter.write(command + SMTPProtocol.CRLF);
         printWriter.flush();
     }
 
     public void handlePrank(Prank prank) throws IOException {
 
+        /* first person is the sender, other receivers */
         Group receiverVictims = prank.getReceiverVictims();
         for(int i = 1; i < receiverVictims.size(); ++i) {
             sendMail(new Mail(prank.getSenderVictim().getMailAddress(),

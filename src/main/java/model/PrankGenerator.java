@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Class that generate pranks
+ * Class that generate pranks. Victims list
+ * is splitted into the correct number of groups
+ * (a person is never in two different groups)
  */
 public class PrankGenerator {
 
@@ -29,6 +31,7 @@ public class PrankGenerator {
         peoplePerGroup = nbVictims / nbGroups;
         messages = configurationManager.getMessages();
 
+        /* randomize victims list */
         Collections.shuffle(victimsMailAdresses);
         nbGeneratedPranks = 0;
     }
@@ -51,6 +54,7 @@ public class PrankGenerator {
 
             this.nbGeneratedPranks++;
 
+            /* first person is the sender */
             return new Prank(victims.get(0), victims, messages.get(Math.abs(random.nextInt() % messages.size())));
 
         } catch(Exception e) {
