@@ -27,7 +27,7 @@ docker build -t <nom_image> .
 Docker va ensuite télécharger toutes les dépendances nécessaires. Cette opération risque de prendre un certain temps. Taper ensuite la commande suivante pour lancer le container :
 
 ```bash
-docker run -it -p 2525:2525 -p 8282:8282 smtp -p 2525 -h 8282
+docker run -it -p 2525:2525 -p 8282:8282 <nom_image> -p 2525 -h 8282
 ```
 
 Le *2525:2525* est nécessaire car c'est le point d'entrée du serveur dans le container et le *8282:8282* sert à accéder à l'interface web du MockMock.
