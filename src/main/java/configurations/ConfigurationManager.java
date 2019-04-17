@@ -17,7 +17,7 @@ public class ConfigurationManager {
     private static final String CRLF = "\r\n";
     private static final String MESSAGES_SEPARATOR = "==";
     private static final String PROPERTIES_DELIMITER = "=";
-    /* path to execute .jar in /target/ */
+    /* path to config file */
     private static final String CONFIG_PATH = "../config/";
 
     private String smtpServerAddress, witnessToCC;
